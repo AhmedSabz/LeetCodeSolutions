@@ -33,12 +33,16 @@ public:
     bool canJump(vector<int>& nums) {
         int goal = nums.size() - 1;
 
+        // Check if the current index i can reach or exceed the goal.
+        // If so, update the goal to the current index i.
         for (int i = nums.size() - 2; i >= 0; i--) {
             if (i + nums[i] >= goal) {
                 goal = i;
             }
         }
-
+        
+        // If the goal has been updated to 0, it means we can reach the last index from the first index.
+        // Return true if the goal is 0, otherwise false.
         return goal == 0;        
     }
 };
