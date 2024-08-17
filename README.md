@@ -1,1 +1,1 @@
-Here is a compilation of selected LeetCode solutions that I've developed. This repository is designed to help users better understand complex coding problems on LeetCode and prepare effectively for coding interviews. Best of luck with your coding journey!
+Here is a collection of LeetCode solutions that I've put together. This repository is aimed at helping users grasp easy to medium coding problems commonly featured in coding interviews, offering useful preparation resources. Wishing you the best on your coding journey!
