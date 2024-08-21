@@ -30,7 +30,7 @@
 using namespace std;
 #include <iostream>
 #include <vector>
-
+#include <map>
 class Solution {
 public:
     bool isNStraightHand(vector<int>& hand, int groupSize) {
