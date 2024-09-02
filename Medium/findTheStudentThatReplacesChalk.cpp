@@ -52,19 +52,34 @@ using namespace std;
 #include <vector>
 class Solution {
 public:
-    int chalkReplacer(vector<int>& nums, int k) {
-       long int sum=0;
-       for(int i=0; i<nums.size();i++){
-        sum+=nums[i];
-       }
-       long int newSize= k % sum;
-       for(int i=0; i<nums.size();i++){
-        newSize-=nums[i];
-        if(newSize < 0){
-            return i;
-        }
-    
-       }
-       return -1;
+int chalkReplacer(vector<int>& nums, int k) {
+    // Step 1: Calculate the total sum of all elements in nums
+    long int sum = 0;
+    for(int i = 0; i < nums.size(); i++) {
+        sum += nums[i];
     }
+
+    // Step 2: Reduce k by the sum modulo to minimize the number of iterations
+    // Since the sum represents the total chalk needed for one complete cycle,
+    // the remainder after dividing k by sum tells us how much chalk is left
+    // after completing full cycles.
+    long int newSize = k % sum;
+
+    // Step 3: Find the index of the student who will not have enough chalk
+    // Iterate through each student, subtracting the chalk they need from newSize.
+    // If newSize becomes negative, it means the current student cannot get enough
+    // chalk, and we return their index.
+    for(int i = 0; i < nums.size(); i++) {
+        newSize -= nums[i];
+        if(newSize < 0) {
+            return i;  // Return the index of the student who can't get enough chalk
+        }
+    }
+
+    // If all students have enough chalk, return -1.
+    // This return is technically unreachable due to the logic above,
+    // as we expect to always find a student who can't get enough chalk.
+    return -1;
+}
+
 };
